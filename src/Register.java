@@ -13,11 +13,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-@WebServlet("/Auth")
-public class Auth extends HttpServlet {
+@WebServlet("/Register")
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Auth() {
+    public Register() {
         Statement stmt = null;
         
         try {
@@ -51,43 +51,33 @@ public class Auth extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String username = request.getParameter("username");
-	        String password = request.getParameter("pass");
+			String username = request.getParameter("regEmail");
+	        String password = request.getParameter("regPass");
+	        String name = request.getParameter("name");
+	        String contact = request.getParameter("contact");
 	        
-	        Boolean login = false;
-	        
-	        System.out.println("Username: " + username);
-	        
-        	Statement stmt = null;
-        	
+        	System.out.println("username: " + username);
+            System.out.println("password: " + password);
+            
+            Statement stmt = null;
+            
             try {
             	Connection con = DatabaseConnection.initializeDatabase();
     			System.out.println("Connected database successfully...");
     			
     			stmt = con.createStatement();
     			
-    			String selector = "SELECT username, password FROM USERS";
-			    ResultSet rs = stmt.executeQuery(selector);
-			    
-			    if (rs.next() == false) { 
-			    	System.out.println("Incorrect username or password.");
-			    	login = false;
-			    } else {
-			    	while(rs.next()){
-				    	String usr  = rs.getString("username");
-				    	String pass = rs.getString("password");
-				    	
-				    	if(usr.equals(username) && pass.equals(password)){
-				    		System.out.println("Logged in with user: " + username); 
-				    		System.out.println("Successfully Logged In!");
-				    		login = true;
-				    		break;
-				    	} else {
-				    		login = false;
-				    		System.out.println("Incorrect username or password.");
-				    	}
-				    }
-			    }
+    			PreparedStatement insertstm = con.prepareStatement("insert into USERS (username, password, name, contact) VALUES (?,?,?,?)");  
+    			
+    			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));  
+    		    
+    	    	insertstm.setString(1, username);
+    	    	insertstm.setString(2, password);
+    	    	insertstm.setString(3, name);
+    	    	insertstm.setString(4, contact);
+    			int i = insertstm.executeUpdate();
+    			
+    			System.out.println("Successfully Registered!");
     		} catch (Exception e) {
     			System.out.println(e);
     		}

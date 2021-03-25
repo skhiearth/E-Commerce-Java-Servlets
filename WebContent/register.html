@@ -19,16 +19,16 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" method="POST" action="/E_Commerce/Register">
       <a href="index.html"><img class="mb-4" src="img/Store.XYZ.png" alt="" height="30" width="180"></a>
-      <label for="inputEmail" class="sr-only">Name</label>
-      <input type="name" id="name" class="form-control" placeholder="Name" style="margin-bottom: 4px;" required autofocus>
-      <label for="inputEmail" class="sr-only">Contact No.</label>
-      <input type="tel" id="contact" class="form-control" placeholder="Contact No." style="margin-bottom: 4px;" required autofocus>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" style="margin-bottom: 4px;" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" style="margin-bottom: 4px;" required>
+      <label for="name" class="sr-only">Name</label>
+      <input name="name" id="name" class="form-control" placeholder="Name" style="margin-bottom: 4px;" required autofocus>
+      <label for="contact" class="sr-only">Contact No.</label>
+      <input type="tel" name="contact" id="contact" class="form-control" placeholder="Contact No." style="margin-bottom: 4px;" required autofocus>
+      <label for="regEmail" class="sr-only">Email address</label>
+      <input type="email" name="regEmail" id="regEmail" class="form-control" placeholder="Email address" style="margin-bottom: 4px;" required autofocus>
+      <label for="regPass" class="sr-only">Password</label>
+      <input type="password" name="regPass" id="regPass" class="form-control" placeholder="Password" style="margin-bottom: 4px;" required>
       <button class="btn btn-lg btn-primary btn-block" style="margin-top: 12px; margin-bottom: 5px;" type="submit">Register</button>
       <a href="login.html" style="margin-top: 5px;"><button class="btn btn-sm btn-secondary btn-block" onclick="location.href='login.html'">Already have an account? Sign in</button></a>
     </form>
