@@ -40,24 +40,24 @@ public class Catalogue extends HttpServlet{
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "INSERT INTO CATALOGUE " +
-	                   "VALUES (0, 'a', 'Example1', 10, 'this is the description')";
-			stmt.executeUpdate(sql);
-			sql = "INSERT INTO CATALOGUE " +
-					"VALUES (1, 'a', 'Example2', 20, 'this is the description')";
-			stmt.executeUpdate(sql);
-			sql = "INSERT INTO CATALOGUE " +
-					"VALUES (2, 'a', 'Example3', 20, 'this is the description')";
-			stmt.executeUpdate(sql);
-			sql = "INSERT INTO CATALOGUE " +
-					"VALUES (3, 'a', 'Example4', 20, 'this is the description')";
-			stmt.executeUpdate(sql);
-			sql = "INSERT INTO CATALOGUE " +
-					"VALUES (4, 'a', 'Example5', 20, 'this is the description')";
-			stmt.executeUpdate(sql);
-			sql = "INSERT INTO CATALOGUE " +
-					"VALUES (5, 'a', 'Example6', 20, 'this is the description')";
-			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO CATALOGUE " +
+//	                   "VALUES (0, 'a', 'Example1', 10, 'this is the description')";
+//			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO CATALOGUE " +
+//					"VALUES (1, 'a', 'Example2', 20, 'this is the description')";
+//			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO CATALOGUE " +
+//					"VALUES (2, 'a', 'Example3', 20, 'this is the description')";
+//			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO CATALOGUE " +
+//					"VALUES (3, 'a', 'Example4', 20, 'this is the description')";
+//			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO CATALOGUE " +
+//					"VALUES (4, 'a', 'Example5', 20, 'this is the description')";
+//			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO CATALOGUE " +
+//					"VALUES (5, 'a', 'Example6', 20, 'this is the description')";
+//			stmt.executeUpdate(sql);
 			
 			System.out.println("Created table in given database...");
 		} catch (Exception e) {

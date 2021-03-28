@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -78,11 +79,24 @@ public class Register extends HttpServlet {
     			int i = insertstm.executeUpdate();
     			
     			System.out.println("Successfully Registered!");
+    			
+    			HttpSession session=request.getSession();  
+	            session.setAttribute("username", username);  
     		} catch (Exception e) {
     			System.out.println(e);
+    			PrintWriter out=response.getWriter();  
+    			out.println("<script type=\"text/javascript\">");
+ 			   out.println("alert('Error, please try again.');");
+ 			   out.println("location='register.html';");
+ 			   out.println("</script>");
     		}
 		} catch (Exception e) {
 			e.printStackTrace();
+			PrintWriter out=response.getWriter();  
+			out.println("<script type=\"text/javascript\">");
+			   out.println("alert('Error, please try again.');");
+			   out.println("location='register.html';");
+			   out.println("</script>");
 		}
 	}
 }

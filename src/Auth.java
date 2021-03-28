@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -62,7 +63,6 @@ public class Auth extends HttpServlet {
         	
             try {
             	Connection con = DatabaseConnection.initializeDatabase();
-    			System.out.println("Connected database successfully...");
     			
     			stmt = con.createStatement();
     			
@@ -71,6 +71,12 @@ public class Auth extends HttpServlet {
 			    
 			    if (rs.next() == false) { 
 			    	System.out.println("Incorrect username or password.");
+			    	PrintWriter out=response.getWriter();  
+			    	String someMessage = "Incorrect username or password.";
+			    	out.println("<script type='text/javascript'>");
+			    	out.println("alert(" + "'" + someMessage + "'" + ");</script>");
+			    	out.println("</head><body></body></html>");
+			    	response.sendRedirect("signin.html");
 			    	login = false;
 			    } else {
 			    	while(rs.next()){
@@ -80,17 +86,38 @@ public class Auth extends HttpServlet {
 				    	if(usr.equals(username) && pass.equals(password)){
 				    		System.out.println("Logged in with user: " + username); 
 				    		System.out.println("Successfully Logged In!");
+				    		
+				    		HttpSession session=request.getSession();  
+				            session.setAttribute("username", username);  
+				    		
 				    		response.sendRedirect("index.jsp");
 				    		login = true;
 				    		break;
 				    	} else {
 				    		login = false;
-				    		System.out.println("Incorrect username or password.");
+				    		PrintWriter out=response.getWriter();  
+				    		out.println("<script type=\"text/javascript\">");
+							   out.println("alert('User or password incorrect');");
+							   out.println("location='signin.html';");
+							   out.println("</script>");
+//					    	response.sendRedirect("signin.html");
 				    	}
 				    }
+			    	
+			    	PrintWriter out=response.getWriter();  
+			    	out.println("<script type=\"text/javascript\">");
+					   out.println("alert('User or password incorrect');");
+					   out.println("location='signin.html';");
+					   out.println("</script>");
+//			    	response.sendRedirect("signin.html");
 			    }
     		} catch (Exception e) {
     			System.out.println(e);
+    			PrintWriter out=response.getWriter();  
+				out.println("<script type=\"text/javascript\">");
+				   out.println("alert('User or password incorrect');");
+				   out.println("location='signin.html';");
+				   out.println("</script>");
     		}
 		} catch (Exception e) {
 			e.printStackTrace();

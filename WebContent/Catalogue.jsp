@@ -17,7 +17,7 @@
 				<% List data= (List)request.getAttribute("data");
 					for (itr=data.iterator(); itr.hasNext(); ){
 						%>
-							<div class="col" style="margin-right: 0px">
+							<div class="col" style="margin-bottom: 14px">
 					            <div class="card" style="width: 18rem;">
 					                <img class="card-img-top" src="..." alt="Card image cap">
 						                <div class="card-body">
