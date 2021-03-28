@@ -27,7 +27,7 @@ public class Catalogue extends HttpServlet{
       Statement stmt = null;
       
       try {
-      	Connection con = DatabaseConnection.initializeDatabase();
+      		Connection con = DatabaseConnection.initializeDatabase();
 			stmt = con.createStatement();
 
 			String sql = "CREATE TABLE IF NOT EXISTS CATALOGUE" +
@@ -35,28 +35,29 @@ public class Catalogue extends HttpServlet{
 					   " image VARCHAR(60) not NULL, " + 
 					   " name VARCHAR(60) not NULL, " + 
 					   " price DOUBLE not NULL, " + 
+					   " description VARCHAR(120) not NULL, " + 
 					   " PRIMARY KEY ( id ))"; 
 			
 			stmt.executeUpdate(sql);
 			
-//			sql = "INSERT INTO CATALOGUE " +
-//	                   "VALUES (0, 'a', 'Example1', 10)";
-//			stmt.executeUpdate(sql);
-//			sql = "INSERT INTO CATALOGUE " +
-//					"VALUES (1, 'a', 'Example2', 20)";
-//			stmt.executeUpdate(sql);
-//			sql = "INSERT INTO CATALOGUE " +
-//					"VALUES (2, 'a', 'Example3', 20)";
-//			stmt.executeUpdate(sql);
-//			sql = "INSERT INTO CATALOGUE " +
-//					"VALUES (3, 'a', 'Example4', 20)";
-//			stmt.executeUpdate(sql);
-//			sql = "INSERT INTO CATALOGUE " +
-//					"VALUES (4, 'a', 'Example5', 20)";
-//			stmt.executeUpdate(sql);
-//			sql = "INSERT INTO CATALOGUE " +
-//					"VALUES (5, 'a', 'Example6', 20)";
-//			stmt.executeUpdate(sql);
+			sql = "INSERT INTO CATALOGUE " +
+	                   "VALUES (0, 'a', 'Example1', 10, 'this is the description')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO CATALOGUE " +
+					"VALUES (1, 'a', 'Example2', 20, 'this is the description')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO CATALOGUE " +
+					"VALUES (2, 'a', 'Example3', 20, 'this is the description')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO CATALOGUE " +
+					"VALUES (3, 'a', 'Example4', 20, 'this is the description')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO CATALOGUE " +
+					"VALUES (4, 'a', 'Example5', 20, 'this is the description')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO CATALOGUE " +
+					"VALUES (5, 'a', 'Example6', 20, 'this is the description')";
+			stmt.executeUpdate(sql);
 			
 			System.out.println("Created table in given database...");
 		} catch (Exception e) {
@@ -86,8 +87,10 @@ public class Catalogue extends HttpServlet{
 		  rs = s.getResultSet();
 		
 		  while (rs.next ()){
-			  dataList.add(rs.getInt("id"));
 			  dataList.add(rs.getString("name"));
+			  dataList.add(rs.getInt("price"));
+			  dataList.add(rs.getString("description"));
+			  dataList.add(rs.getInt("id"));
 		  }
 		
 		  rs.close ();
