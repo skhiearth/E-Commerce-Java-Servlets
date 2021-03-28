@@ -91,20 +91,24 @@ public class Adder extends HttpServlet {
 							prep.setString(2,"5");  
 						 }
 			        	prep.executeUpdate();
+			        	PrintWriter out=response.getWriter();  
+		        		out.println("<script type=\"text/javascript\">");
+						   out.println("alert('Added to cart!');");
+						   out.println("</script>");
+			        	response.sendRedirect("/E_Commerce/Catalogue");
 		        	} else {
 		        		PrintWriter out=response.getWriter();  
 		        		out.println("<script type=\"text/javascript\">");
 						   out.println("alert('You need to login first!');");
-//						   out.println("location='/E_Commerce/Catalogue");
 						   out.println("</script>");
-		        		response.sendRedirect("");
+		        		response.sendRedirect("/E_Commerce/Catalogue");
 		        	}
 		        } else {  
 		        	PrintWriter out=response.getWriter();  
-		    		out.println("<script type=\"text/javascript\">");
-				   out.println("alert('You need to login first!');");
-				   out.println("location='index.jsp';");
-				   out.println("</script>");
+	        		out.println("<script type=\"text/javascript\">");
+					   out.println("alert('You need to login first!');");
+					   out.println("</script>");
+	        		response.sendRedirect("/E_Commerce/Catalogue");
 		        }  
 			} catch (Exception e) {
     			System.out.println(e);
