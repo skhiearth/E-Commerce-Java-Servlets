@@ -24,18 +24,13 @@
 							                <h5 class="card-title"><%=itr.next()%></h5>
 							                <h6 class="card-subtitle mb-2 text-muted">Price: <%=itr.next()%></h6>
 							                <p class="card-text"><%=itr.next()%></p>
-							                <input type="submit" name=<%=itr.next()%> value="Add to cart">
+							                <form method="POST" action="/E_Commerce/Adder">
+							                	<input type="submit" name=<%=itr.next()%> value="Add to cart">
+							                </form>
 						                </div>
 					            </div>
 					        </div>
 						<%}%>
-						
-<!-- 						if (request.getParameter("btn1") != null){
-				      	
-				 		}
-						else if (request.getParameter("btn2") != null){
-						       // do something
-						 } -->
     </div>
     
 	</body>

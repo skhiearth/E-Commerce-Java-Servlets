@@ -81,7 +81,8 @@ public class Register extends HttpServlet {
     			System.out.println("Successfully Registered!");
     			
     			HttpSession session=request.getSession();  
-	            session.setAttribute("username", username);  
+	            session.setAttribute("username", username); 
+	            response.sendRedirect("index.jsp");
     		} catch (Exception e) {
     			System.out.println(e);
     			PrintWriter out=response.getWriter();  
