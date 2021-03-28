@@ -25,7 +25,7 @@
             <span class="navbar-text">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Cart</a>
+                  <a class="nav-link" href="CartOne.jsp">Cart</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="signin.html">Login</a>
@@ -48,6 +48,7 @@
           <iframe src="/E_Commerce/Catalogue" width = "100%" height = "400" style="padding-left: 20px; padding-right: 20px;">
             Frames not supported.
           </iframe>
+          
         </div>
       </div>
     </main>
