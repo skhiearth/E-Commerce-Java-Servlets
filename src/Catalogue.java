@@ -32,10 +32,10 @@ public class Catalogue extends HttpServlet{
 
 			String sql = "CREATE TABLE IF NOT EXISTS CATALOGUE" +
 					   "(id INTEGER not NULL, " +
-					   " image VARCHAR(60) not NULL, " + 
+					   " image VARCHAR(400) not NULL, " + 
 					   " name VARCHAR(60) not NULL, " + 
 					   " price DOUBLE not NULL, " + 
-					   " description VARCHAR(120) not NULL, " + 
+					   " description VARCHAR(1000) not NULL, " + 
 					   " PRIMARY KEY ( id ))"; 
 			
 			stmt.executeUpdate(sql);
@@ -87,6 +87,7 @@ public class Catalogue extends HttpServlet{
 		  rs = s.getResultSet();
 		
 		  while (rs.next ()){
+			  dataList.add(rs.getString("image"));
 			  dataList.add(rs.getString("name"));
 			  dataList.add(rs.getInt("price"));
 			  dataList.add(rs.getString("description"));

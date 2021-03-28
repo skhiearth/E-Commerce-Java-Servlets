@@ -52,7 +52,7 @@ public class Cart extends HttpServlet{
 		
 		if(session!=null){  
         	name=(String)session.getAttribute("username");  
-        	System.out.println(name);
+        	System.out.println("Username: "+name);
         	if(name != null) {
         		while (rs.next ()){
       			  String username = rs.getString("username");
@@ -83,23 +83,32 @@ public class Cart extends HttpServlet{
             	         if(_id == id) {
             	        	 dataList.add(id);
             	        	 dataList.add(_name);
+            	        	 
+            	        	 
+            	        	 int occurrences = Collections.frequency(ids, id);
+            	        	 dataList.add(occurrences);
+            	        	 
             	        	 dataList.add(price);
+            	        	 int totalPrice = (int)price * occurrences;
+            	        	 dataList.add(totalPrice);
             	         }
             	      }
         	     }
         		
         		
         	} else {
-        		out.println("<script type=\"text/javascript\">");
-				   out.println("alert('You need to be logged in!');");
-				   out.println("location='index.jsp';");
-				   out.println("</script>");
+        		RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+        		  if (dispatcher != null){
+        			  dispatcher.forward(request, response);
+        		  }
         	}
 		} else {
-			out.println("<script type=\"text/javascript\">");
-			   out.println("alert('You need to be logged in!');");
-			   out.println("location='index.jsp';");
-			   out.println("</script>");
+			PrintWriter outr=response.getWriter();  
+			outr.println("<script type=\"text/javascript\">");
+			   outr.println("alert('User or password incorrect');");
+			   outr.println("location='signin.html';");
+			   outr.println("</script>");
+			   request.getRequestDispatcher("index.jsp").include( request, response);
 		}
 		
 		  
