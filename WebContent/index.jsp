@@ -36,15 +36,16 @@
         </div>
       </nav>
     </header>
-    
-
+	
     <main>
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Welcome to store.xyz</h1>
-          <p class="lead">This is our mockup for an example e-commerce store.</p>
+          <p class="lead">This is our mockup for an example e-commerce store using Java Servlets, JSP and JDBC</p>
+          
+          
 
-          <iframe src="lists.html" width = "100%" height = "400" style="padding-left: 20px; padding-right: 20px;">
+          <iframe src="/E_Commerce/Catalogue" width = "100%" height = "400" style="padding-left: 20px; padding-right: 20px;">
             Frames not supported.
           </iframe>
         </div>
@@ -53,7 +54,7 @@
 
     <footer class="footer text-center">
       <div class="container">
-        <span class="text-muted" style="text-align: center;">store.xyz Â© 2021 | by Ramanuj Sharma, Simran Gogia and Utkarsh Sharma</span>
+        <span class="text-muted" style="text-align: center;">store.xyz © 2021 | by Ramanuj Sharma, Simran Gogia and Utkarsh Sharma</span>
       </div>
     </footer>
 

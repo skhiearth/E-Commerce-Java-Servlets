@@ -80,6 +80,7 @@ public class Auth extends HttpServlet {
 				    	if(usr.equals(username) && pass.equals(password)){
 				    		System.out.println("Logged in with user: " + username); 
 				    		System.out.println("Successfully Logged In!");
+				    		response.sendRedirect("index.jsp");
 				    		login = true;
 				    		break;
 				    	} else {
