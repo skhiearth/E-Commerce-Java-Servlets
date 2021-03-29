@@ -95,6 +95,8 @@ public class Cart extends HttpServlet{
             	      }
         	     }
         		
+        		System.out.println(dataList);
+        		
         		
         	} else {
         		RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
