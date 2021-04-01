@@ -45,7 +45,7 @@
           
           
 
-          <iframe src="/E_Commerce/Catalogue" width = "100%" height = "450" style="padding-left: 20px; padding-right: 20px;">
+          <iframe src="/E_Commerce/Catalogue" width = "100%" height = "600" style="padding-left: 20px; padding-right: 20px;">
             Frames not supported.
           </iframe>
           
